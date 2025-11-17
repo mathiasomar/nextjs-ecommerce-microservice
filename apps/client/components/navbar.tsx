@@ -20,14 +20,13 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import UserLogout from "./user-logout";
 import ShoppingCartIcon from "./shopping-cart-icon";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import ProfileButton from "./profile-button";
 
 const Navbar = () => {
   return (
-    <div className="sticky top-0 z-2 w-screen py-5 bg-white dark:bg-gray-800">
+    <div className="sticky top-0 z-2 w-screen py-5 bg-white dark:bg-gray-500">
       <Container className="flex items-center justify-between">
         <Link href="/" className="flex items-center gap-1">
           <Image src="/logo.png" alt="logo" width={25} height={25} />
@@ -96,11 +95,14 @@ const Navbar = () => {
               </DropdownMenuContent>
             </DropdownMenu> */}
 
-            <Button asChild size="sm">
-              <Link href="/auth/login" className="capitalize">
-                login
-              </Link>
-            </Button>
+            <SignedOut>
+              <SignInButton>
+                <Button>Sign In</Button>
+              </SignInButton>
+            </SignedOut>
+            <SignedIn>
+              <ProfileButton />
+            </SignedIn>
           </div>
           <MobileMenu />
         </div>

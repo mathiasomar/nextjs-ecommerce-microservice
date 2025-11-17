@@ -3,6 +3,8 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import Navbar from "@/components/navbar";
+import { ClerkProvider } from "@clerk/nextjs";
+import { Suspense } from "react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,15 +29,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" style={{ overflowX: "hidden" }} suppressHydrationWarning>
-      <head></head>
-      <body
-        className={`${inter.variable} ${playfair.variable} font-sans antialiased`}
-      >
-        <Navbar />
-        {children}
-        <Toaster position="top-center" />
-      </body>
-    </html>
+    <Suspense fallback={null}>
+      <ClerkProvider>
+        <html
+          lang="en"
+          style={{ overflowX: "hidden" }}
+          suppressHydrationWarning
+        >
+          <head></head>
+          <body
+            className={`${inter.variable} ${playfair.variable} font-sans antialiased`}
+          >
+            <Navbar />
+            {children}
+            <Toaster position="top-center" />
+          </body>
+        </html>
+      </ClerkProvider>
+    </Suspense>
   );
 }
