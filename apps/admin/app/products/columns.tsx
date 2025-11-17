@@ -26,8 +26,8 @@ export type Product = {
   name: string;
   shortDescription: string;
   description: string;
-  sizes: string[];
-  colors: string[];
+  sizes: [string, ...string[]];
+  colors: [string, ...string[]];
   images: Record<string, string>;
 };
 
@@ -63,8 +63,8 @@ export const columns: ColumnDef<Product>[] = [
       return (
         <div className="relative h-9 w-9">
           <Image
-            src={product.images[product.colors[0]]}
-            alt={product.name}
+            src={product.images?.[product.colors[0] || ""] || ""}
+            alt={product.name || ""}
             fill
             className="rounded object-center"
           />

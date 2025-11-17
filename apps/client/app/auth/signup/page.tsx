@@ -17,7 +17,10 @@ import { Spinner } from "@/components/ui/spinner";
 const signUpSchema = z
   .object({
     name: z.string().min(3, "Name must be at least 3 characters long"),
-    email: z.string().email("Invalid email address"),
+    email: z
+      .string()
+      .regex(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, "Invalid email address")
+      .min(1, "Email is required"),
     password: z.string().min(8, "Password must be at least 8 characters long"),
     confpassword: z.string(),
   })

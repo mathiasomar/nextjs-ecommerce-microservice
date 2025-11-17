@@ -17,7 +17,10 @@ import { useRouter } from "next/navigation";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 const loginSchema = z.object({
-  email: z.string().email("Invalid email address"),
+  email: z
+    .string()
+    .regex(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, "Invalid email address")
+    .min(1, "Email is required"),
 });
 
 type ResetForm = z.infer<typeof loginSchema>;

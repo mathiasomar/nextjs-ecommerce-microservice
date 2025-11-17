@@ -21,9 +21,9 @@ import Image from "next/image";
 const paymentFormShema = z.object({
   cardHolder: z.string().min(1, "Card Holder is required!"),
   cardNumber: z
-    .email()
-    .min(16, "Card number must be 16 digits")
-    .max(16, "Card number must be 16 digits"),
+    .string()
+    .regex(/^\d{16}$/, "Card number must be 16 digits")
+    .min(1, "Card number is required"),
   expirationDate: z
     .string()
     .regex(

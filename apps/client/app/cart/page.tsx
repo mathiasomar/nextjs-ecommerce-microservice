@@ -144,7 +144,7 @@ function CartPageContent() {
                   {/* IMAGE */}
                   <div className="relative w-32 h-32 bg-white rounded-lg overflow-hidden">
                     <Image
-                      src={item.images[item.selectedColor]}
+                      src={item.images?.[item.selectedColor] || ""}
                       alt={item.name}
                       fill
                       className="object-contain"
