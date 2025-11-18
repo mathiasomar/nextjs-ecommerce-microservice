@@ -17,8 +17,16 @@ const TestPage = async () => {
   });
   const dataOrder = await resOrder.json();
 
+  const resPayment = await fetch("http://localhost:8002/test", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const dataPayment = await resPayment.json();
+
   console.log(dataProduct);
   console.log(dataOrder);
+  console.log(dataPayment);
   return <div>TestPage</div>;
 };
 
