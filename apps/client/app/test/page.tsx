@@ -24,6 +24,8 @@ const TestPage = async () => {
   });
   const dataPayment = await resPayment.json();
 
+  console.log(token);
+
   console.log(dataProduct);
   console.log(dataOrder);
   console.log(dataPayment);
