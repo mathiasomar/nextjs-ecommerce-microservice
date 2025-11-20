@@ -2,7 +2,7 @@ import { FastifyInstance } from "fastify";
 import { shouldBeUser } from "../middleware/authMiddleware";
 import { Order } from "@repo/order-db";
 
-const orderRoute = async (fastify: FastifyInstance) => {
+export const orderRoute = async (fastify: FastifyInstance) => {
   fastify.get(
     "/user-orders",
     { preHandler: shouldBeUser },
