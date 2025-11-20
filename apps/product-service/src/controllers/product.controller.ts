@@ -24,7 +24,16 @@ export const createProduct = async (req: Request, res: Response) => {
 
   res.status(201).json(product);
 };
-export const updateProduct = async (req: Request, res: Response) => {};
+export const updateProduct = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const data: Prisma.ProductUpdateInput = req.body;
+
+  const updatedProduct = await prisma.product.update({
+    where: { id: Number(id) },
+    data,
+  });
+  res.status(200).json(updatedProduct);
+};
 
 export const deleteProduct = async (req: Request, res: Response) => {};
 
