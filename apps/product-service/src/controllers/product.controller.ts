@@ -35,7 +35,13 @@ export const updateProduct = async (req: Request, res: Response) => {
   res.status(200).json(updatedProduct);
 };
 
-export const deleteProduct = async (req: Request, res: Response) => {};
+export const deleteProduct = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const deletedProduct = await prisma.product.delete({
+    where: { id: Number(id) },
+  });
+  res.status(200).json(deletedProduct);
+};
 
 export const getProducts = async (req: Request, res: Response) => {
   const { sort, category, search, limit } = req.query;
