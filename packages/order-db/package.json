@@ -1,0 +1,21 @@
+{
+  "name": "@repo/order-db",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.22.0",
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^24.10.1"
+  },
+  ".": "./src/index.ts",
+  "dependencies": {
+    "mongoose": "^8.20.0"
+  }
+}
