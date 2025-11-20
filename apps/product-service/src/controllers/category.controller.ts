@@ -8,7 +8,16 @@ export const createCategory = async (req: Request, res: Response) => {
 
   res.status(201).json(data);
 };
-export const updateCategory = async (req: Request, res: Response) => {};
+export const updateCategory = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const data: Prisma.CategoryUpdateInput = req.body;
+
+  const updatedCategory = await prisma.category.update({
+    where: { id: Number(id) },
+    data,
+  });
+  res.status(200).json(updatedCategory);
+};
 export const deleteCategory = async (req: Request, res: Response) => {};
 export const getCategories = async (req: Request, res: Response) => {
   const categories = await prisma.category.findMany();
