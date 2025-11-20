@@ -18,7 +18,13 @@ export const updateCategory = async (req: Request, res: Response) => {
   });
   res.status(200).json(updatedCategory);
 };
-export const deleteCategory = async (req: Request, res: Response) => {};
+export const deleteCategory = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const deletedCategory = await prisma.category.delete({
+    where: { id: Number(id) },
+  });
+  res.status(200).json(deletedCategory);
+};
 export const getCategories = async (req: Request, res: Response) => {
   const categories = await prisma.category.findMany();
 
