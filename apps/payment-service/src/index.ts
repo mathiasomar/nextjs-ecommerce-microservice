@@ -30,6 +30,14 @@ app.post("/create-stripe-product", async (c) => {
   return c.json(res);
 });
 
+app.get("/stripe-product-price", async (c) => {
+  const res = await stripe.prices.list({
+    product: "123",
+  });
+
+  return c.json(res);
+});
+
 const start = async () => {
   try {
     serve(
