@@ -2,10 +2,17 @@ import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { clerkMiddleware, getAuth } from "@hono/clerk-auth";
 import sessionRoute from "./routes/session.route.js";
+import { cors } from "hono/cors";
 
 const app = new Hono();
 
 app.use("*", clerkMiddleware());
+app.use(
+  "*",
+  cors({
+    origin: ["http://localhost:3002"],
+  })
+);
 
 app.get("/health", (c) => {
   return c.json({
