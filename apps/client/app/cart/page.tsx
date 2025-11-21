@@ -1,6 +1,6 @@
 "use client";
 
-import { CartItemsType } from "@/app/types";
+import { CartItemsType } from "@repo/types";
 import Container from "@/components/container";
 import PaymentForm from "@/components/payment-form";
 import SectionHeader from "@/components/sections/section-header";
@@ -144,7 +144,11 @@ function CartPageContent() {
                   {/* IMAGE */}
                   <div className="relative w-32 h-32 bg-white rounded-lg overflow-hidden">
                     <Image
-                      src={item.images?.[item.selectedColor] || ""}
+                      src={
+                        (item.images as Record<string, string>)?.[
+                          item.selectedColor
+                        ] || ""
+                      }
                       alt={item.name}
                       fill
                       className="object-contain"

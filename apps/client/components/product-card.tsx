@@ -1,6 +1,6 @@
 "use client";
 
-import { ProductType } from "@/app/types";
+import { ProductType } from "@repo/types";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import Link from "next/link";
@@ -13,8 +13,8 @@ import { toast } from "sonner";
 
 const ProductCard = ({ product }: { product: ProductType }) => {
   const [productType, setProductType] = useState({
-    size: product.sizes[0],
-    color: product.colors[0],
+    size: product.sizes[0]!,
+    color: product.colors[0]!,
   });
 
   const { addToCart } = useCartStore();
@@ -46,7 +46,11 @@ const ProductCard = ({ product }: { product: ProductType }) => {
         <Link href={`/products/${product.id}`}>
           <div className="relative aspect-2/3">
             <Image
-              src={product.images?.[productType.color] || ""}
+              src={
+                (product.images as Record<string, string>)?.[
+                  productType.color
+                ] || ""
+              }
               alt={product.name}
               fill
               className="object-cover hover:scale-105 transition-all duration-300"

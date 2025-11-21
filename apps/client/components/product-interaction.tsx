@@ -1,6 +1,6 @@
 "use client";
 
-import { ProductType } from "@/app/types";
+import { ProductType } from "@repo/types";
 import { cn } from "@/lib/utils";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Button } from "./ui/button";

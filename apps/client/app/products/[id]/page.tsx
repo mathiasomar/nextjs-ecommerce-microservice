@@ -1,4 +1,4 @@
-import { ProductType } from "@/app/types";
+import { ProductType } from "@repo/types";
 import Container from "@/components/container";
 import ProductInteraction from "@/components/product-interaction";
 import Image from "next/image";
@@ -19,6 +19,9 @@ const product: ProductType = {
     purple: "/products/1p.png",
     green: "/products/1gr.png",
   },
+  categorySlug: "test",
+  createdAt: new Date(),
+  updatedAt: new Date(),
 };
 
 const ProductPage = async ({
@@ -37,7 +40,9 @@ const ProductPage = async ({
       {/* IMAGE */}
       <div className="w-full lg:w-5/12 relative bg-white aspect-2/3">
         <Image
-          src={product.images?.[selectedColor] || ""}
+          src={
+            (product.images as Record<string, string>)?.[selectedColor] || ""
+          }
           alt={product.name}
           fill
           className="object-contain rounded-md"
