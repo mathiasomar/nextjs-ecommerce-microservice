@@ -1,8 +1,7 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { clerkMiddleware, getAuth } from "@hono/clerk-auth";
-import { shouldBeUser } from "./middleware/authMiddleware.js";
-import stripe from "../utils/stripe.js";
+import sessionRoute from "./routes/session.route.js";
 
 const app = new Hono();
 
@@ -15,6 +14,8 @@ app.get("/health", (c) => {
     timestamp: Date.now(),
   });
 });
+
+app.route("/session", sessionRoute);
 
 // test endpoint to create a stripe product
 

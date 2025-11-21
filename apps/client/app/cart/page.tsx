@@ -184,7 +184,8 @@ function CartPageContent() {
           ) : activeStep === 2 ? (
             <ShippingForm setShippingForm={setShippingForm} />
           ) : activeStep === 3 && shippingForm ? (
-            <PaymentForm />
+            // <PaymentForm />
+            <>{/* TODO: Replace with stripe */}</>
           ) : (
             <Alert variant="destructive">
               <AlertCircleIcon />
