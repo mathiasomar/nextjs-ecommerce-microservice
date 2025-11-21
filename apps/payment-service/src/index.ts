@@ -16,27 +16,31 @@ app.get("/health", (c) => {
   });
 });
 
-app.post("/create-stripe-product", async (c) => {
-  const res = await stripe.products.create({
-    id: "123",
-    name: "Test Product",
-    description: "This is a test product",
-    default_price_data: {
-      currency: "usd",
-      unit_amount: 10 * 100,
-    },
-  });
+// test endpoint to create a stripe product
 
-  return c.json(res);
-});
+// app.post("/create-stripe-product", async (c) => {
+//   const res = await stripe.products.create({
+//     id: "123",
+//     name: "Test Product",
+//     description: "This is a test product",
+//     default_price_data: {
+//       currency: "usd",
+//       unit_amount: 10 * 100,
+//     },
+//   });
 
-app.get("/stripe-product-price", async (c) => {
-  const res = await stripe.prices.list({
-    product: "123",
-  });
+//   return c.json(res);
+// });
 
-  return c.json(res);
-});
+// test endpoint to create a stripe price
+
+// app.get("/stripe-product-price", async (c) => {
+//   const res = await stripe.prices.list({
+//     product: "123",
+//   });
+
+//   return c.json(res);
+// });
 
 const start = async () => {
   try {
