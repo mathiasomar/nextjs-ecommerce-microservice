@@ -1,6 +1,5 @@
 import Container from "@/components/container";
 import Features from "@/components/features";
-import FooterSection from "@/components/footer";
 import ProductListing from "@/components/product-listing";
 import HeroSection from "@/components/sections/hero-section";
 import SectionHeader from "@/components/sections/section-header";
@@ -30,7 +29,6 @@ const Home = () => {
           >
             <ProductListing params="homepage" />
           </Suspense>
-          <FooterSection />
         </Container>
       </section>
     </div>
