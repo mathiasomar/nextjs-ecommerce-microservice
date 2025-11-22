@@ -3,6 +3,7 @@ import { Hono } from "hono";
 import { clerkMiddleware, getAuth } from "@hono/clerk-auth";
 import sessionRoute from "./routes/session.route.js";
 import { cors } from "hono/cors";
+import webhooksRoute from "./routes/webhooks.route.js";
 
 const app = new Hono();
 
@@ -23,6 +24,7 @@ app.get("/health", (c) => {
 });
 
 app.route("/session", sessionRoute);
+app.route("/webhooks", webhooksRoute);
 
 // test endpoint to create a stripe product
 
