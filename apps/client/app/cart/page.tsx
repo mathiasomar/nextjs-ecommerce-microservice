@@ -14,6 +14,7 @@ import { AlertCircleIcon, ArrowRight, Trash2 } from "lucide-react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState, Suspense } from "react";
+import StripePaymentForm from "@/components/stripe-payment-form";
 
 const steps = [
   {
@@ -185,7 +186,7 @@ function CartPageContent() {
             <ShippingForm setShippingForm={setShippingForm} />
           ) : activeStep === 3 && shippingForm ? (
             // <PaymentForm />
-            <>{/* TODO: Replace with stripe */}</>
+            <StripePaymentForm shippingForm={shippingForm} />
           ) : (
             <Alert variant="destructive">
               <AlertCircleIcon />

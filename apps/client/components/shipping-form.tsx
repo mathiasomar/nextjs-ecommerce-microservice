@@ -39,11 +39,11 @@ const ShippingForm = ({
   const form = useForm<ShippingFormInputs>({
     resolver: zodResolver(shippingFormShema),
     defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
-      address: "",
-      city: "",
+      name: "Omar Mathias",
+      email: "ommykmathy@gmail.com",
+      phone: "254712345678",
+      address: "Voi, Taita Taveta County, Kenya",
+      city: "Mombasa",
     },
   });
 
