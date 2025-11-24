@@ -106,14 +106,14 @@ function CartPageContent() {
           <div
             className={cn(
               "flex items-center gap-2 border-b-2 pb-4 cursor-pointer transition-colors duration-300 ease-in-out",
-              step.id === activeStep ? "border-primary" : "border-secondary"
+              step.id === activeStep ? "border-primary" : "border-gray-300"
             )}
             key={step.id}
           >
             <div
               className={cn(
                 "w-6 h-6 rounded-full text-primary-foreground p-4 flex items-center justify-center",
-                step.id === activeStep ? "bg-primary" : "bg-secondary"
+                step.id === activeStep ? "bg-primary" : "bg-gray-300"
               )}
             >
               {step.id}
@@ -121,7 +121,7 @@ function CartPageContent() {
             <p
               className={cn(
                 "text-sm font-medium",
-                step.id === activeStep ? "text-primary" : "text-secondary"
+                step.id === activeStep ? "text-primary" : "text-gray-300"
               )}
             >
               {step.title}
